@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Tutorial deploy aplikasi web menggunakan Docker dan NGINX di server sendiri.">
+<link rel="preconnect" href="https://encrypted-tbn0.gstatic.com">
+<title>How to Deploy a Web Application Using Docker and NGINX</title>
+</head>
+<body>
+
+<header>
+  <nav aria-label="Navigasi utama">
+    <a href="index.html">IMDb Top 3</a> |
+    <a href="blog.html" aria-current="page">Dev Blogs</a> |
+    <a href="form.html">Form Pendaftaran</a> |
+    <a href="cv.html">CV</a>
+  </nav>
+</header>
+<hr>
+
+<main>
+  <!-- Menambahkan height="500" untuk mencegah Cumulative Layout Shift (CLS) -->
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzMVU3aXjLfmoGjQq24kiEFOireAiaWlEasKnbY4X8-g&s=10" alt="Ilustrasi arsitektur Docker dan NGINX" width="1000" height="500" fetchpriority="high" decoding="async">
+
+  <table role="presentation" style="border:0; padding:5px;">
+    <tr>
+      <td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScRGoJDUmtJGUkPOSNjOIYZ5OMtUwPBBIB38bJ8X4UsQ&s=10" alt="Foto profil Vishnu Satheesh" width="32" height="32" loading="lazy" decoding="async"></td>
+      <td>
+        <span><b>Vishnu Satheesh</b></span><br>
+        <span>Posted on May 31</span>
+      </td>
+    </tr>
+  </table>
+
+  <h1>How to Deploy a Web Application Using Docker and NGINX on Your Own Server</h1>
+  <p><span>#webdev</span>&nbsp;&nbsp;<span>#devops</span></p>
+  <hr>
+
+  <p>Deploying a web application doesn't need to be a complicated process. With Docker, NGINX, and your own server, you can get your app live in no time.</p>
+  <p>In this blog, I'll show you step by step how to serve your app with a domain, route traffic with NGINX, and run it all inside a Docker container. This guide is specifically tailored for a Linux-based server.</p>
+
+  <h2>Step 1 : Setup docker</h2>
+  <p>First, let's set up Docker. I'm using a simple React app as an example, but feel free to use any application or codebase of your choice. Create a Dockerfile in your project directory to define how your app should be containerized.</p>
+  <pre><code>Dockerfile:
+FROM node:20-alpine
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY . .
+CMD [ "npm", "start" ]</code></pre>
+
+  <h2>Step 2 : Build and Run the Docker Container (on your server)</h2>
+  <p>Once you've created your Dockerfile, the next step is to build your Docker image and run it to make sure everything is working as expected.</p>
+
+  <h2>Conclusion</h2>
+  <p>Deploying your web application using Docker and NGINX on your own server might sound intimidating at first, but once you break it down, it's quite manageable.</p>
+  <p>By containerizing your app, setting up NGINX as a reverse proxy, and linking everything together on your VPS, you gain full control over your deployment process.</p>
+
+  <hr>
+
+  <section aria-label="Komentar">
+    <h2>Top comments (0)</h2>
+    <table role="presentation" style="border:0; padding:5px;">
+      <tr>
+        <td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScRGoJDUmtJGUkPOSNjOIYZ5OMtUwPBBIB38bJ8X4UsQ&s=10" alt="Foto profil Anda" width="32" height="32" loading="lazy" decoding="async"></td>
+        <td>
+          <label for="komentar">Tambahkan komentar</label><br>
+          <textarea id="komentar" rows="3" placeholder="Add to the discussion"></textarea>
+        </td>
+      </tr>
+    </table>
+  </section>
+</main>
+
+</body>
+</html>
